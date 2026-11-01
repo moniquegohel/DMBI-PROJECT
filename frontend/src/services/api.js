@@ -83,6 +83,25 @@ export const getProducts = async () => {
   return response.data;
 };
 
+// --- Milestone 5: Feature Engineering ---
+
+export const generateFeatures = async () => {
+  const response = await api.post('/model/features/generate');
+  return response.data;
+};
+
+export const getFeaturesStatus = async () => {
+  const response = await api.get('/model/features/status');
+  return response.data;
+};
+
+export const getFeaturesPreview = async () => {
+  const response = await api.get('/model/features/preview');
+  return response.data;
+};
+
+// --- Milestone 6: Model Training ---
+
 export const trainModels = async () => {
   const response = await api.post('/model/train');
   return response.data;
@@ -98,41 +117,50 @@ export const getModelResults = async () => {
   return response.data;
 };
 
-// --- Milestone 5: Feature Engineering ---
+// --- Milestone 7: Model Evaluation & Comparison ---
 
-/**
- * Run feature engineering on the active cleaned dataset.
- * Returns a full FeatureEngineeringResult including column catalogue and preview.
- */
-export const generateFeatures = async () => {
-  const response = await api.post('/model/features/generate');
+export const evaluateModels = async (force = false) => {
+  const response = await api.post(`/model/evaluate?force=${force}`);
   return response.data;
 };
 
-/**
- * Check whether an ML dataset already exists (lightweight status check).
- */
-export const getFeaturesStatus = async () => {
-  const response = await api.get('/model/features/status');
+export const getModelEvaluation = async () => {
+  const response = await api.get('/model/evaluation');
   return response.data;
 };
 
-/**
- * Re-generate features and return a fresh preview + column catalogue.
- */
-export const getFeaturesPreview = async () => {
-  const response = await api.get('/model/features/preview');
+export const getModelEvaluationStatus = async () => {
+  const response = await api.get('/model/evaluation/status');
+  return response.data;
+};
+
+// --- Milestone 8: Demand Forecasting ---
+
+export const getForecastOptions = async () => {
+  const response = await api.get('/forecast/options');
   return response.data;
 };
 
 export const generateForecast = async (params) => {
-  const response = await api.post('/forecast', params);
+  const response = await api.post('/forecast/generate', params);
   return response.data;
 };
 
-export const analyzeInventory = async (params) => {
-  const response = await api.post('/inventory/analyze', params);
+// --- Milestone 9: Inventory Simulation ---
+
+export const simulateInventory = async (params) => {
+  const response = await api.post('/inventory/simulate', params);
   return response.data;
 };
+
+export const getInventoryStockInfo = async (storeId, productId) => {
+  const response = await api.get('/inventory/stock-info', {
+    params: { store_id: storeId, product_id: productId }
+  });
+  return response.data;
+};
+
+// Backward-compatibility alias
+export const analyzeInventory = simulateInventory;
 
 export default api;

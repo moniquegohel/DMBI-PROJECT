@@ -12,6 +12,7 @@ import { fetchHealth } from './services/api';
 function App() {
   const [activeTab, setActiveTab] = useState('dashboard');
   const [apiStatus, setApiStatus] = useState('connecting');
+  const [sharedForecastContext, setSharedForecastContext] = useState(null);
 
   useEffect(() => {
     const checkBackend = async () => {
@@ -26,10 +27,15 @@ function App() {
     checkBackend();
   }, []);
 
+  const handleBridgeToInventory = (forecastData) => {
+    setSharedForecastContext(forecastData);
+    setActiveTab('inventory');
+  };
+
   const renderContent = () => {
     switch (activeTab) {
       case 'dashboard':
-        return <Dashboard />;
+        return <Dashboard setActiveTab={setActiveTab} />;
       case 'dataset':
         return <Dataset />;
       case 'analysis':
@@ -37,11 +43,21 @@ function App() {
       case 'model':
         return <ModelTraining setActiveTab={setActiveTab} />;
       case 'forecast':
-        return <DemandForecast />;
+        return (
+          <DemandForecast
+            setActiveTab={setActiveTab}
+            onBridgeToInventory={handleBridgeToInventory}
+          />
+        );
       case 'inventory':
-        return <Inventory />;
+        return (
+          <Inventory
+            setActiveTab={setActiveTab}
+            initialContext={sharedForecastContext}
+          />
+        );
       default:
-        return <Dashboard />;
+        return <Dashboard setActiveTab={setActiveTab} />;
     }
   };
 
@@ -59,4 +75,3 @@ function App() {
 }
 
 export default App;
-

@@ -1,22 +1,29 @@
 """
-routes/model.py — Milestone 5: Feature Engineering API endpoints.
-
-This module exposes the feature engineering step through the existing FastAPI
-application.  Model training endpoints (Milestone 6) will be added here later.
+routes/model.py — Milestone 5–7: Feature Engineering, Model Training & Evaluation Endpoints.
 
 Routes:
-  POST /api/model/features/generate  — run feature engineering, save ML dataset
-  GET  /api/model/features/status    — check whether ML dataset already exists
-  GET  /api/model/features/preview   — return a summary + 10-row preview of the
-                                       most recently generated ML dataset
+  Features (Milestone 5):
+    POST /api/model/features/generate  — run feature engineering, save ML dataset
+    GET  /api/model/features/status    — check whether ML dataset already exists
+    GET  /api/model/features/preview   — return summary + 10-row preview of ML dataset
+
+  Training (Milestone 6):
+    POST /api/model/train              — train Linear Regression & Random Forest models
+    GET  /api/model/training-status    — get metadata & status of trained models
+    GET  /api/model/results            — alias for training-status
+
+  Evaluation (Milestone 7):
+    POST /api/model/evaluate           — evaluate models on held-out test dataset
+    GET  /api/model/evaluation         — retrieve evaluation metrics and charts
+    GET  /api/model/evaluation/status  — check if evaluation results exist
 
 Conventions:
-  - Service logic lives in app.services.feature_engineering.
-  - Pydantic response models live in app.schemas.features.
+  - Service logic lives in app.services.*.
+  - Pydantic response models live in app.schemas.*.
   - Errors are mapped to appropriate HTTP status codes; no stack traces exposed.
 """
 
-from fastapi import APIRouter, HTTPException, status
+from fastapi import APIRouter, HTTPException, Query, status
 
 from app.schemas.features import FeatureEngineeringResult, FeatureEngineeringStatus
 from app.services.feature_engineering import (
@@ -31,9 +38,21 @@ from app.services.model_training import (
     train_all_models,
     get_training_status,
 )
+from app.schemas.evaluation import (
+    ModelEvaluationResult,
+    ModelEvaluationStatusResponse,
+)
+from app.services.model_evaluation import (
+    evaluate_models,
+    get_evaluation_status,
+)
 
 router = APIRouter()
 
+
+# ===========================================================================
+# Milestone 5: Feature Engineering Endpoints
+# ===========================================================================
 
 @router.post(
     "/features/generate",
@@ -109,8 +128,6 @@ def get_features_preview():
     """
     Re-generate features (or use the cached dataset file) and return the
     FeatureEngineeringResult including column catalogue and preview rows.
-    This endpoint is useful for the frontend to display feature information
-    without requiring the user to click 'Generate' again.
     """
     try:
         return run_feature_engineering()
@@ -200,3 +217,83 @@ def get_model_results():
         )
 
 
+# ===========================================================================
+# Milestone 7: Model Evaluation Endpoints
+# ===========================================================================
+
+@router.post(
+    "/evaluate",
+    response_model=ModelEvaluationResult,
+    summary="Evaluate Models",
+    description=(
+        "Evaluate trained Linear Regression and Random Forest models on the "
+        "reserved 20% chronological holdout test dataset. Computes MAE, RMSE, "
+        "and zero-safe MAPE, generates daily timeline data, and caches results."
+    ),
+)
+def run_model_evaluation(force: bool = Query(False, description="Force recomputation even if cache exists")):
+    """Run model evaluation against the held-out test data."""
+    try:
+        return evaluate_models(force_recompute=force)
+    except FileNotFoundError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=str(exc),
+        )
+    except ValueError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=str(exc),
+        )
+    except Exception as exc:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"An error occurred during model evaluation: {exc!s}",
+        )
+
+
+@router.get(
+    "/evaluation",
+    response_model=ModelEvaluationResult,
+    summary="Get Model Evaluation Results",
+    description=(
+        "Retrieve cached model evaluation results, or compute them if models are "
+        "trained and cached results are not yet present."
+    ),
+)
+def get_model_evaluation():
+    """Retrieve or compute model evaluation results on the holdout test data."""
+    try:
+        return evaluate_models(force_recompute=False)
+    except FileNotFoundError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=str(exc),
+        )
+    except ValueError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=str(exc),
+        )
+    except Exception as exc:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Could not retrieve model evaluation: {exc!s}",
+        )
+
+
+@router.get(
+    "/evaluation/status",
+    response_model=ModelEvaluationStatusResponse,
+    summary="Get Model Evaluation Status",
+    description="Check whether model evaluation results are available on disk without computing them.",
+)
+def get_model_evaluation_status():
+    """Retrieve evaluation readiness and cached results if present."""
+    try:
+        return get_evaluation_status()
+    except Exception as exc:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Could not retrieve evaluation status: {exc!s}",
+        )
