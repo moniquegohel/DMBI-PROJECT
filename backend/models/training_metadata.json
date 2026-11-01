@@ -1,0 +1,64 @@
+{
+  "timestamp": "2026-10-29T19:45:11.616540",
+  "target_column": "Units Sold",
+  "date_column": "Date",
+  "numeric_predictors": [
+    "day",
+    "day_of_week",
+    "month",
+    "is_weekend",
+    "previous_day_sales",
+    "rolling_7_day_average",
+    "promotion",
+    "price",
+    "discount"
+  ],
+  "categorical_predictors": [
+    "Store ID",
+    "Product ID"
+  ],
+  "excluded_columns": {},
+  "split_info": {
+    "cutoff_date": "2023-08-08",
+    "train_start_date": "2022-01-01",
+    "train_end_date": "2023-08-07",
+    "holdout_start_date": "2023-08-08",
+    "holdout_end_date": "2024-01-01",
+    "total_dates_count": 731,
+    "train_dates_count": 584,
+    "holdout_dates_count": 147,
+    "train_row_count": 58400,
+    "holdout_row_count": 14700,
+    "excluded_initial_rows": 100,
+    "training_rows_fitted": 58300
+  },
+  "models": [
+    {
+      "model_name": "Linear Regression",
+      "model_key": "linear_regression",
+      "algorithm": "LinearRegression",
+      "status": "trained",
+      "training_rows_fitted": 58300,
+      "parameters": {
+        "fit_intercept": true,
+        "copy_X": true
+      },
+      "artifact_filename": "linear_regression_pipeline.joblib",
+      "error_message": null
+    },
+    {
+      "model_name": "Random Forest Regressor",
+      "model_key": "random_forest",
+      "algorithm": "RandomForestRegressor",
+      "status": "trained",
+      "training_rows_fitted": 58300,
+      "parameters": {
+        "n_estimators": 100,
+        "random_state": 42,
+        "n_jobs": -1
+      },
+      "artifact_filename": "random_forest_pipeline.joblib",
+      "error_message": null
+    }
+  ]
+}

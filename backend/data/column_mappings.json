@@ -1,0 +1,7 @@
+{
+  "date": "Date",
+  "store_id": "Store ID",
+  "product_id": "Product ID",
+  "units_sold": "Units Sold",
+  "inventory_level": "Inventory Level"
+}

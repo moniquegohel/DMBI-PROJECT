@@ -1,0 +1,87 @@
+
+# ==========================================
+# SMARTSTOCK - Git Ignore Configuration
+# ==========================================
+
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# ---------- Python Virtual Environments ----------
+venv/
+.venv/
+env/
+ENV/
+
+# ---------- Python Cache and Testing ----------
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# ---------- Logs ----------
+*.log
+logs/
+
+# ---------- React / Node.js ----------
+node_modules/
+dist/
+build/
+.next/
+out/
+.npm/
+.eslintcache
+
+# ---------- Environment Variables ----------
+.env
+.env.*
+!.env.example
+
+# ---------- Machine Learning Model Files ----------
+# Keep trained models locally; do not upload large generated models.
+*.pkl
+*.pickle
+*.joblib
+*.h5
+*.keras
+*.onnx
+
+# ---------- Generated Dataset Files ----------
+backend/data/cleaned_dataset.csv
+backend/data/ml_dataset.csv
+
+# ---------- Local Databases ----------
+*.db
+*.sqlite
+*.sqlite3
+*.sqlite3-journal
+
+# ---------- Jupyter Notebook ----------
+.ipynb_checkpoints/
+
+# ---------- Temporary Files ----------
+*.tmp
+*.bak
+*.swp
+*.swo
+temp/
+tmp/
+uploads/temp/
+
+# ---------- Generated Project Files ----------
+project_structure.txt
+
+# ---------- Operating System ----------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---------- IDE ----------
+.vscode/
+.idea/
+
+# ---------- Git ----------
+*.orig
