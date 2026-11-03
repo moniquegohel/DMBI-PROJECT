@@ -3,5 +3,12 @@
   "store_id": "Store ID",
   "product_id": "Product ID",
   "units_sold": "Units Sold",
-  "inventory_level": "Inventory Level"
+  "inventory_level": "Inventory Level",
+  "units_ordered": "Category",
+  "price": "Price",
+  "discount": "Discount",
+  "promotion": "Holiday/Promotion",
+  "weather": "Weather Condition",
+  "category": "Category",
+  "region": "Region"
 }

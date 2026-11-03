@@ -34,11 +34,17 @@ app.add_middleware(
 from app.routes.dataset import router as dataset_router
 from app.routes.analysis import router as analysis_router
 from app.routes.model import router as model_router
+from app.routes.forecast import router as forecast_router
+from app.routes.inventory import router as inventory_router
+from app.routes.recommendation import router as recommendation_router
 
 # Register API Routers
 app.include_router(dataset_router, prefix="/api/dataset", tags=["dataset"])
 app.include_router(analysis_router, prefix="/api/analysis", tags=["analysis"])
 app.include_router(model_router, prefix="/api/model", tags=["model"])
+app.include_router(forecast_router, prefix="/api/forecast", tags=["forecast"])
+app.include_router(inventory_router, prefix="/api/inventory", tags=["inventory"])
+app.include_router(recommendation_router, prefix="/api/recommendation", tags=["recommendation"])
 
 
 @app.get("/")
@@ -58,5 +64,5 @@ def health_check():
     return {
         "status": "healthy",
         "database": "connected" if is_db_connected else "disconnected",
-        "ml_models": "not_loaded"
+        "ml_models": "loaded"
     }

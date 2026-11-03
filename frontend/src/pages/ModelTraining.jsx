@@ -372,6 +372,22 @@ const ModelTraining = ({ setActiveTab }) => {
               <SuccessBanner message="Both prediction models have been trained and saved successfully." />
             )}
 
+            {/* Link to Dashboard for Model Evaluation */}
+            {hasModels && !isTraining && (
+              <div className="flex items-center justify-between p-4 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-sm flex-wrap gap-2">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span>Prediction models are trained and ready. View accuracy metrics and comparison on the Dashboard.</span>
+                </div>
+                <button
+                  onClick={() => setActiveTab && setActiveTab('dashboard')}
+                  className="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold transition-colors shrink-0"
+                >
+                  View on Dashboard
+                </button>
+              </div>
+            )}
+
             {/* ── Model cards ── */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <ModelCard

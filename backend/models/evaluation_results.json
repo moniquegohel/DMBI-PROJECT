@@ -1,0 +1,1015 @@
+{
+  "success": true,
+  "evaluation_timestamp": "2026-11-01T11:58:49.724826",
+  "test_period": {
+    "start_date": "2023-08-08",
+    "end_date": "2024-01-01",
+    "cutoff_date": "2023-08-08",
+    "total_test_dates": 147,
+    "total_test_rows": 14700,
+    "eligible_mape_rows": 14638,
+    "excluded_zero_actual_count": 62
+  },
+  "models": {
+    "linear_regression": {
+      "mae": 88.8019,
+      "rmse": 108.2374,
+      "mape": 342.94,
+      "evaluated_rows_count": 14700,
+      "excluded_zero_actual_count": 62,
+      "eligible_mape_rows_count": 14638
+    },
+    "random_forest": {
+      "mae": 90.7635,
+      "rmse": 109.8753,
+      "mape": 358.93,
+      "evaluated_rows_count": 14700,
+      "excluded_zero_actual_count": 62,
+      "eligible_mape_rows_count": 14638
+    }
+  },
+  "comparison": [
+    {
+      "model_name": "Linear Regression",
+      "model_key": "linear_regression",
+      "algorithm": "LinearRegression",
+      "metrics": {
+        "mae": 88.8019,
+        "rmse": 108.2374,
+        "mape": 342.94,
+        "evaluated_rows_count": 14700,
+        "excluded_zero_actual_count": 62,
+        "eligible_mape_rows_count": 14638
+      },
+      "is_winner_mae": true,
+      "is_winner_rmse": true,
+      "is_winner_mape": true,
+      "is_overall_winner": true
+    },
+    {
+      "model_name": "Random Forest Regressor",
+      "model_key": "random_forest",
+      "algorithm": "RandomForestRegressor",
+      "metrics": {
+        "mae": 90.7635,
+        "rmse": 109.8753,
+        "mape": 358.93,
+        "evaluated_rows_count": 14700,
+        "excluded_zero_actual_count": 62,
+        "eligible_mape_rows_count": 14638
+      },
+      "is_winner_mae": false,
+      "is_winner_rmse": false,
+      "is_winner_mape": false,
+      "is_overall_winner": false
+    }
+  ],
+  "summary_table": [
+    {
+      "metric": "MAE",
+      "metric_name": "Mean Absolute Error",
+      "description": "Average difference between actual and predicted demand",
+      "unit": "Units Sold",
+      "linear_regression": 88.8,
+      "random_forest": 90.76,
+      "difference": 1.96,
+      "better_model": "Linear Regression",
+      "percentage_difference": 2.2
+    },
+    {
+      "metric": "RMSE",
+      "metric_name": "Root Mean Squared Error",
+      "description": "Error metric giving greater weight to large prediction misses",
+      "unit": "Units Sold",
+      "linear_regression": 108.24,
+      "random_forest": 109.88,
+      "difference": 1.64,
+      "better_model": "Linear Regression",
+      "percentage_difference": 1.5
+    },
+    {
+      "metric": "MAPE",
+      "metric_name": "Mean Absolute Percentage Error",
+      "description": "Percentage deviation from actual demand (excludes 62 zero-demand days)",
+      "unit": "%",
+      "linear_regression": 342.94,
+      "random_forest": 358.93,
+      "difference": 16.0,
+      "better_model": "Linear Regression",
+      "percentage_difference": 4.7
+    }
+  ],
+  "metric_comparison_chart": [
+    {
+      "metric": "MAE",
+      "metric_label": "Mean Absolute Error (Units)",
+      "linear_regression": 88.8,
+      "random_forest": 90.76,
+      "better_model": "Linear Regression",
+      "unit": "Units Sold"
+    },
+    {
+      "metric": "RMSE",
+      "metric_label": "Root Mean Squared Error (Units)",
+      "linear_regression": 108.24,
+      "random_forest": 109.88,
+      "better_model": "Linear Regression",
+      "unit": "Units Sold"
+    },
+    {
+      "metric": "MAPE",
+      "metric_label": "Mean Absolute Percentage Error (%)",
+      "linear_regression": 342.94,
+      "random_forest": 358.93,
+      "better_model": "Linear Regression",
+      "unit": "%"
+    }
+  ],
+  "daily_timeline": [
+    {
+      "date": "2023-08-08",
+      "actual": 13666.0,
+      "linear_regression": 13635.0,
+      "random_forest": 13818.4
+    },
+    {
+      "date": "2023-08-09",
+      "actual": 13956.0,
+      "linear_regression": 13682.7,
+      "random_forest": 13907.8
+    },
+    {
+      "date": "2023-08-10",
+      "actual": 13028.0,
+      "linear_regression": 13727.5,
+      "random_forest": 13839.5
+    },
+    {
+      "date": "2023-08-11",
+      "actual": 12414.0,
+      "linear_regression": 13765.8,
+      "random_forest": 13805.4
+    },
+    {
+      "date": "2023-08-12",
+      "actual": 12124.0,
+      "linear_regression": 13560.1,
+      "random_forest": 14085.9
+    },
+    {
+      "date": "2023-08-13",
+      "actual": 13944.0,
+      "linear_regression": 13609.4,
+      "random_forest": 14112.5
+    },
+    {
+      "date": "2023-08-14",
+      "actual": 16190.0,
+      "linear_regression": 13614.4,
+      "random_forest": 14071.4
+    },
+    {
+      "date": "2023-08-15",
+      "actual": 11593.0,
+      "linear_regression": 13659.1,
+      "random_forest": 14156.5
+    },
+    {
+      "date": "2023-08-16",
+      "actual": 12494.0,
+      "linear_regression": 13706.2,
+      "random_forest": 13688.7
+    },
+    {
+      "date": "2023-08-17",
+      "actual": 12826.0,
+      "linear_regression": 13750.1,
+      "random_forest": 13913.3
+    },
+    {
+      "date": "2023-08-18",
+      "actual": 14330.0,
+      "linear_regression": 13785.8,
+      "random_forest": 14045.1
+    },
+    {
+      "date": "2023-08-19",
+      "actual": 13443.0,
+      "linear_regression": 13587.3,
+      "random_forest": 14210.1
+    },
+    {
+      "date": "2023-08-20",
+      "actual": 13571.0,
+      "linear_regression": 13624.5,
+      "random_forest": 14061.8
+    },
+    {
+      "date": "2023-08-21",
+      "actual": 11752.0,
+      "linear_regression": 13635.5,
+      "random_forest": 14051.0
+    },
+    {
+      "date": "2023-08-22",
+      "actual": 12266.0,
+      "linear_regression": 13680.8,
+      "random_forest": 14113.8
+    },
+    {
+      "date": "2023-08-23",
+      "actual": 15476.0,
+      "linear_regression": 13713.6,
+      "random_forest": 14164.3
+    },
+    {
+      "date": "2023-08-24",
+      "actual": 14312.0,
+      "linear_regression": 13769.0,
+      "random_forest": 13896.2
+    },
+    {
+      "date": "2023-08-25",
+      "actual": 12582.0,
+      "linear_regression": 13818.1,
+      "random_forest": 14047.3
+    },
+    {
+      "date": "2023-08-26",
+      "actual": 12686.0,
+      "linear_regression": 13600.8,
+      "random_forest": 14266.1
+    },
+    {
+      "date": "2023-08-27",
+      "actual": 14612.0,
+      "linear_regression": 13642.5,
+      "random_forest": 14528.4
+    },
+    {
+      "date": "2023-08-28",
+      "actual": 12869.0,
+      "linear_regression": 13653.9,
+      "random_forest": 14487.9
+    },
+    {
+      "date": "2023-08-29",
+      "actual": 12386.0,
+      "linear_regression": 13692.9,
+      "random_forest": 14511.3
+    },
+    {
+      "date": "2023-08-30",
+      "actual": 13614.0,
+      "linear_regression": 13741.5,
+      "random_forest": 14201.9
+    },
+    {
+      "date": "2023-08-31",
+      "actual": 12392.0,
+      "linear_regression": 13783.6,
+      "random_forest": 14375.3
+    },
+    {
+      "date": "2023-09-01",
+      "actual": 12972.0,
+      "linear_regression": 13745.7,
+      "random_forest": 15491.3
+    },
+    {
+      "date": "2023-09-02",
+      "actual": 14008.0,
+      "linear_regression": 13538.7,
+      "random_forest": 14670.1
+    },
+    {
+      "date": "2023-09-03",
+      "actual": 14148.0,
+      "linear_regression": 13583.6,
+      "random_forest": 14583.6
+    },
+    {
+      "date": "2023-09-04",
+      "actual": 11750.0,
+      "linear_regression": 13593.9,
+      "random_forest": 14559.1
+    },
+    {
+      "date": "2023-09-05",
+      "actual": 13368.0,
+      "linear_regression": 13635.3,
+      "random_forest": 14253.4
+    },
+    {
+      "date": "2023-09-06",
+      "actual": 14666.0,
+      "linear_regression": 13676.2,
+      "random_forest": 14093.9
+    },
+    {
+      "date": "2023-09-07",
+      "actual": 14129.0,
+      "linear_regression": 13725.4,
+      "random_forest": 14036.1
+    },
+    {
+      "date": "2023-09-08",
+      "actual": 12614.0,
+      "linear_regression": 13769.3,
+      "random_forest": 13934.0
+    },
+    {
+      "date": "2023-09-09",
+      "actual": 14076.0,
+      "linear_regression": 13561.2,
+      "random_forest": 13870.3
+    },
+    {
+      "date": "2023-09-10",
+      "actual": 13912.0,
+      "linear_regression": 13605.8,
+      "random_forest": 14440.5
+    },
+    {
+      "date": "2023-09-11",
+      "actual": 13698.0,
+      "linear_regression": 13614.9,
+      "random_forest": 14341.3
+    },
+    {
+      "date": "2023-09-12",
+      "actual": 14469.0,
+      "linear_regression": 13653.7,
+      "random_forest": 14089.8
+    },
+    {
+      "date": "2023-09-13",
+      "actual": 14447.0,
+      "linear_regression": 13704.3,
+      "random_forest": 13951.5
+    },
+    {
+      "date": "2023-09-14",
+      "actual": 13573.0,
+      "linear_regression": 13740.8,
+      "random_forest": 14209.1
+    },
+    {
+      "date": "2023-09-15",
+      "actual": 13267.0,
+      "linear_regression": 13779.7,
+      "random_forest": 13645.9
+    },
+    {
+      "date": "2023-09-16",
+      "actual": 14833.0,
+      "linear_regression": 13573.9,
+      "random_forest": 13830.3
+    },
+    {
+      "date": "2023-09-17",
+      "actual": 12137.0,
+      "linear_regression": 13621.9,
+      "random_forest": 13915.8
+    },
+    {
+      "date": "2023-09-18",
+      "actual": 12376.0,
+      "linear_regression": 13625.7,
+      "random_forest": 14171.1
+    },
+    {
+      "date": "2023-09-19",
+      "actual": 13852.0,
+      "linear_regression": 13670.2,
+      "random_forest": 13966.7
+    },
+    {
+      "date": "2023-09-20",
+      "actual": 12567.0,
+      "linear_regression": 13715.6,
+      "random_forest": 13629.1
+    },
+    {
+      "date": "2023-09-21",
+      "actual": 13667.0,
+      "linear_regression": 13763.3,
+      "random_forest": 13842.8
+    },
+    {
+      "date": "2023-09-22",
+      "actual": 12445.0,
+      "linear_regression": 13806.7,
+      "random_forest": 13943.8
+    },
+    {
+      "date": "2023-09-23",
+      "actual": 13000.0,
+      "linear_regression": 13593.2,
+      "random_forest": 13893.1
+    },
+    {
+      "date": "2023-09-24",
+      "actual": 15084.0,
+      "linear_regression": 13646.8,
+      "random_forest": 14319.7
+    },
+    {
+      "date": "2023-09-25",
+      "actual": 12328.0,
+      "linear_regression": 13654.5,
+      "random_forest": 14110.6
+    },
+    {
+      "date": "2023-09-26",
+      "actual": 14408.0,
+      "linear_regression": 13694.6,
+      "random_forest": 14162.7
+    },
+    {
+      "date": "2023-09-27",
+      "actual": 12137.0,
+      "linear_regression": 13741.0,
+      "random_forest": 13935.3
+    },
+    {
+      "date": "2023-09-28",
+      "actual": 11474.0,
+      "linear_regression": 13786.2,
+      "random_forest": 14301.2
+    },
+    {
+      "date": "2023-09-29",
+      "actual": 15660.0,
+      "linear_regression": 13826.5,
+      "random_forest": 14182.6
+    },
+    {
+      "date": "2023-09-30",
+      "actual": 14296.0,
+      "linear_regression": 13619.2,
+      "random_forest": 14512.7
+    },
+    {
+      "date": "2023-10-01",
+      "actual": 14212.0,
+      "linear_regression": 13583.2,
+      "random_forest": 15161.4
+    },
+    {
+      "date": "2023-10-02",
+      "actual": 12577.0,
+      "linear_regression": 13587.2,
+      "random_forest": 14938.3
+    },
+    {
+      "date": "2023-10-03",
+      "actual": 13278.0,
+      "linear_regression": 13635.0,
+      "random_forest": 14220.1
+    },
+    {
+      "date": "2023-10-04",
+      "actual": 14580.0,
+      "linear_regression": 13681.0,
+      "random_forest": 14243.6
+    },
+    {
+      "date": "2023-10-05",
+      "actual": 13340.0,
+      "linear_regression": 13720.7,
+      "random_forest": 14068.6
+    },
+    {
+      "date": "2023-10-06",
+      "actual": 13890.0,
+      "linear_regression": 13764.2,
+      "random_forest": 14247.4
+    },
+    {
+      "date": "2023-10-07",
+      "actual": 13104.0,
+      "linear_regression": 13553.9,
+      "random_forest": 14358.3
+    },
+    {
+      "date": "2023-10-08",
+      "actual": 12100.0,
+      "linear_regression": 13599.3,
+      "random_forest": 14118.5
+    },
+    {
+      "date": "2023-10-09",
+      "actual": 12290.0,
+      "linear_regression": 13607.4,
+      "random_forest": 13932.5
+    },
+    {
+      "date": "2023-10-10",
+      "actual": 13245.0,
+      "linear_regression": 13655.6,
+      "random_forest": 13972.1
+    },
+    {
+      "date": "2023-10-11",
+      "actual": 13262.0,
+      "linear_regression": 13698.2,
+      "random_forest": 14085.3
+    },
+    {
+      "date": "2023-10-12",
+      "actual": 14019.0,
+      "linear_regression": 13739.4,
+      "random_forest": 13836.6
+    },
+    {
+      "date": "2023-10-13",
+      "actual": 13153.0,
+      "linear_regression": 13790.0,
+      "random_forest": 13962.1
+    },
+    {
+      "date": "2023-10-14",
+      "actual": 13854.0,
+      "linear_regression": 13576.9,
+      "random_forest": 14099.6
+    },
+    {
+      "date": "2023-10-15",
+      "actual": 13414.0,
+      "linear_regression": 13622.6,
+      "random_forest": 14461.8
+    },
+    {
+      "date": "2023-10-16",
+      "actual": 12758.0,
+      "linear_regression": 13629.3,
+      "random_forest": 14002.5
+    },
+    {
+      "date": "2023-10-17",
+      "actual": 15804.0,
+      "linear_regression": 13670.4,
+      "random_forest": 14288.2
+    },
+    {
+      "date": "2023-10-18",
+      "actual": 13066.0,
+      "linear_regression": 13719.0,
+      "random_forest": 14162.4
+    },
+    {
+      "date": "2023-10-19",
+      "actual": 14936.0,
+      "linear_regression": 13752.3,
+      "random_forest": 13965.0
+    },
+    {
+      "date": "2023-10-20",
+      "actual": 16770.0,
+      "linear_regression": 13803.7,
+      "random_forest": 14249.9
+    },
+    {
+      "date": "2023-10-21",
+      "actual": 14950.0,
+      "linear_regression": 13590.3,
+      "random_forest": 13949.0
+    },
+    {
+      "date": "2023-10-22",
+      "actual": 13870.0,
+      "linear_regression": 13636.0,
+      "random_forest": 14437.7
+    },
+    {
+      "date": "2023-10-23",
+      "actual": 13758.0,
+      "linear_regression": 13644.7,
+      "random_forest": 14287.0
+    },
+    {
+      "date": "2023-10-24",
+      "actual": 13493.0,
+      "linear_regression": 13685.9,
+      "random_forest": 14117.5
+    },
+    {
+      "date": "2023-10-25",
+      "actual": 14234.0,
+      "linear_regression": 13731.1,
+      "random_forest": 14096.4
+    },
+    {
+      "date": "2023-10-26",
+      "actual": 13560.0,
+      "linear_regression": 13769.6,
+      "random_forest": 13961.8
+    },
+    {
+      "date": "2023-10-27",
+      "actual": 12542.0,
+      "linear_regression": 13821.0,
+      "random_forest": 14261.9
+    },
+    {
+      "date": "2023-10-28",
+      "actual": 14890.0,
+      "linear_regression": 13609.8,
+      "random_forest": 14528.3
+    },
+    {
+      "date": "2023-10-29",
+      "actual": 14165.0,
+      "linear_regression": 13656.4,
+      "random_forest": 14514.7
+    },
+    {
+      "date": "2023-10-30",
+      "actual": 13752.0,
+      "linear_regression": 13663.3,
+      "random_forest": 14648.2
+    },
+    {
+      "date": "2023-10-31",
+      "actual": 12780.0,
+      "linear_regression": 13705.5,
+      "random_forest": 14723.9
+    },
+    {
+      "date": "2023-11-01",
+      "actual": 13679.0,
+      "linear_regression": 13672.8,
+      "random_forest": 15199.3
+    },
+    {
+      "date": "2023-11-02",
+      "actual": 13884.0,
+      "linear_regression": 13716.5,
+      "random_forest": 14471.3
+    },
+    {
+      "date": "2023-11-03",
+      "actual": 12977.0,
+      "linear_regression": 13763.1,
+      "random_forest": 14521.2
+    },
+    {
+      "date": "2023-11-04",
+      "actual": 14549.0,
+      "linear_regression": 13551.6,
+      "random_forest": 14587.6
+    },
+    {
+      "date": "2023-11-05",
+      "actual": 14400.0,
+      "linear_regression": 13595.1,
+      "random_forest": 14748.9
+    },
+    {
+      "date": "2023-11-06",
+      "actual": 13323.0,
+      "linear_regression": 13607.5,
+      "random_forest": 14497.5
+    },
+    {
+      "date": "2023-11-07",
+      "actual": 13015.0,
+      "linear_regression": 13653.0,
+      "random_forest": 14236.6
+    },
+    {
+      "date": "2023-11-08",
+      "actual": 12883.0,
+      "linear_regression": 13691.8,
+      "random_forest": 14066.5
+    },
+    {
+      "date": "2023-11-09",
+      "actual": 12806.0,
+      "linear_regression": 13736.4,
+      "random_forest": 13974.0
+    },
+    {
+      "date": "2023-11-10",
+      "actual": 14567.0,
+      "linear_regression": 13780.5,
+      "random_forest": 13948.9
+    },
+    {
+      "date": "2023-11-11",
+      "actual": 14633.0,
+      "linear_regression": 13572.3,
+      "random_forest": 14124.2
+    },
+    {
+      "date": "2023-11-12",
+      "actual": 13585.0,
+      "linear_regression": 13616.7,
+      "random_forest": 14179.2
+    },
+    {
+      "date": "2023-11-13",
+      "actual": 13590.0,
+      "linear_regression": 13626.4,
+      "random_forest": 14333.4
+    },
+    {
+      "date": "2023-11-14",
+      "actual": 13684.0,
+      "linear_regression": 13673.7,
+      "random_forest": 14201.6
+    },
+    {
+      "date": "2023-11-15",
+      "actual": 14084.0,
+      "linear_regression": 13716.4,
+      "random_forest": 14130.7
+    },
+    {
+      "date": "2023-11-16",
+      "actual": 13784.0,
+      "linear_regression": 13752.1,
+      "random_forest": 14223.1
+    },
+    {
+      "date": "2023-11-17",
+      "actual": 12641.0,
+      "linear_regression": 13794.5,
+      "random_forest": 14423.6
+    },
+    {
+      "date": "2023-11-18",
+      "actual": 14554.0,
+      "linear_regression": 13585.4,
+      "random_forest": 13901.3
+    },
+    {
+      "date": "2023-11-19",
+      "actual": 12949.0,
+      "linear_regression": 13637.0,
+      "random_forest": 14506.8
+    },
+    {
+      "date": "2023-11-20",
+      "actual": 14683.0,
+      "linear_regression": 13647.4,
+      "random_forest": 14147.4
+    },
+    {
+      "date": "2023-11-21",
+      "actual": 13383.0,
+      "linear_regression": 13690.9,
+      "random_forest": 13979.4
+    },
+    {
+      "date": "2023-11-22",
+      "actual": 14412.0,
+      "linear_regression": 13731.5,
+      "random_forest": 14137.9
+    },
+    {
+      "date": "2023-11-23",
+      "actual": 13961.0,
+      "linear_regression": 13777.4,
+      "random_forest": 14004.3
+    },
+    {
+      "date": "2023-11-24",
+      "actual": 13044.0,
+      "linear_regression": 13816.5,
+      "random_forest": 14090.2
+    },
+    {
+      "date": "2023-11-25",
+      "actual": 14836.0,
+      "linear_regression": 13603.9,
+      "random_forest": 13816.6
+    },
+    {
+      "date": "2023-11-26",
+      "actual": 14558.0,
+      "linear_regression": 13656.1,
+      "random_forest": 14607.6
+    },
+    {
+      "date": "2023-11-27",
+      "actual": 13722.0,
+      "linear_regression": 13668.5,
+      "random_forest": 14392.1
+    },
+    {
+      "date": "2023-11-28",
+      "actual": 14710.0,
+      "linear_regression": 13707.0,
+      "random_forest": 14285.8
+    },
+    {
+      "date": "2023-11-29",
+      "actual": 14595.0,
+      "linear_regression": 13749.5,
+      "random_forest": 14497.5
+    },
+    {
+      "date": "2023-11-30",
+      "actual": 14635.0,
+      "linear_regression": 13791.7,
+      "random_forest": 14402.3
+    },
+    {
+      "date": "2023-12-01",
+      "actual": 11898.0,
+      "linear_regression": 13758.6,
+      "random_forest": 15057.5
+    },
+    {
+      "date": "2023-12-02",
+      "actual": 13200.0,
+      "linear_regression": 13546.9,
+      "random_forest": 14712.1
+    },
+    {
+      "date": "2023-12-03",
+      "actual": 13116.0,
+      "linear_regression": 13593.8,
+      "random_forest": 14903.2
+    },
+    {
+      "date": "2023-12-04",
+      "actual": 15286.0,
+      "linear_regression": 13602.7,
+      "random_forest": 14930.5
+    },
+    {
+      "date": "2023-12-05",
+      "actual": 13829.0,
+      "linear_regression": 13651.5,
+      "random_forest": 14553.8
+    },
+    {
+      "date": "2023-12-06",
+      "actual": 14194.0,
+      "linear_regression": 13689.3,
+      "random_forest": 13904.1
+    },
+    {
+      "date": "2023-12-07",
+      "actual": 11947.0,
+      "linear_regression": 13736.8,
+      "random_forest": 14094.3
+    },
+    {
+      "date": "2023-12-08",
+      "actual": 13462.0,
+      "linear_regression": 13783.1,
+      "random_forest": 14006.4
+    },
+    {
+      "date": "2023-12-09",
+      "actual": 11947.0,
+      "linear_regression": 13570.7,
+      "random_forest": 13924.4
+    },
+    {
+      "date": "2023-12-10",
+      "actual": 12569.0,
+      "linear_regression": 13612.3,
+      "random_forest": 14040.0
+    },
+    {
+      "date": "2023-12-11",
+      "actual": 11972.0,
+      "linear_regression": 13624.4,
+      "random_forest": 14502.2
+    },
+    {
+      "date": "2023-12-12",
+      "actual": 14068.0,
+      "linear_regression": 13669.0,
+      "random_forest": 14027.9
+    },
+    {
+      "date": "2023-12-13",
+      "actual": 14736.0,
+      "linear_regression": 13713.8,
+      "random_forest": 13927.2
+    },
+    {
+      "date": "2023-12-14",
+      "actual": 15429.0,
+      "linear_regression": 13759.2,
+      "random_forest": 14317.5
+    },
+    {
+      "date": "2023-12-15",
+      "actual": 14060.0,
+      "linear_regression": 13798.2,
+      "random_forest": 14354.3
+    },
+    {
+      "date": "2023-12-16",
+      "actual": 13471.0,
+      "linear_regression": 13586.5,
+      "random_forest": 14270.8
+    },
+    {
+      "date": "2023-12-17",
+      "actual": 14633.0,
+      "linear_regression": 13637.1,
+      "random_forest": 14207.6
+    },
+    {
+      "date": "2023-12-18",
+      "actual": 13331.0,
+      "linear_regression": 13643.8,
+      "random_forest": 14501.6
+    },
+    {
+      "date": "2023-12-19",
+      "actual": 11756.0,
+      "linear_regression": 13684.1,
+      "random_forest": 14047.9
+    },
+    {
+      "date": "2023-12-20",
+      "actual": 14965.0,
+      "linear_regression": 13724.0,
+      "random_forest": 14223.4
+    },
+    {
+      "date": "2023-12-21",
+      "actual": 12292.0,
+      "linear_regression": 13771.1,
+      "random_forest": 13977.6
+    },
+    {
+      "date": "2023-12-22",
+      "actual": 14136.0,
+      "linear_regression": 13817.1,
+      "random_forest": 14032.8
+    },
+    {
+      "date": "2023-12-23",
+      "actual": 13335.0,
+      "linear_regression": 13615.1,
+      "random_forest": 13763.7
+    },
+    {
+      "date": "2023-12-24",
+      "actual": 13433.0,
+      "linear_regression": 13658.4,
+      "random_forest": 14272.5
+    },
+    {
+      "date": "2023-12-25",
+      "actual": 12723.0,
+      "linear_regression": 13666.8,
+      "random_forest": 14713.0
+    },
+    {
+      "date": "2023-12-26",
+      "actual": 15858.0,
+      "linear_regression": 13707.9,
+      "random_forest": 14193.6
+    },
+    {
+      "date": "2023-12-27",
+      "actual": 13023.0,
+      "linear_regression": 13756.5,
+      "random_forest": 14058.6
+    },
+    {
+      "date": "2023-12-28",
+      "actual": 16271.0,
+      "linear_regression": 13790.3,
+      "random_forest": 14226.0
+    },
+    {
+      "date": "2023-12-29",
+      "actual": 13368.0,
+      "linear_regression": 13838.6,
+      "random_forest": 14373.5
+    },
+    {
+      "date": "2023-12-30",
+      "actual": 13156.0,
+      "linear_regression": 13624.3,
+      "random_forest": 14354.9
+    },
+    {
+      "date": "2023-12-31",
+      "actual": 11208.0,
+      "linear_regression": 13667.7,
+      "random_forest": 14655.8
+    },
+    {
+      "date": "2024-01-01",
+      "actual": 13244.0,
+      "linear_regression": 13544.6,
+      "random_forest": 15215.5
+    }
+  ],
+  "best_model": "Linear Regression",
+  "best_model_key": "linear_regression",
+  "interpretation": "Linear Regression outperformed Random Forest across all three accuracy metrics (MAE: 88.80 vs 90.76 units, RMSE: 108.24 vs 109.88 units, MAPE: 342.94% vs 358.93%). The linear model provides a more reliable and stable demand baseline on unseen future dates without overfitting to noise. It is recommended for retail inventory planning."
+}
