@@ -7,6 +7,7 @@ import SalesAnalysis from './pages/SalesAnalysis';
 import ModelTraining from './pages/ModelTraining';
 import DemandForecast from './pages/DemandForecast';
 import Inventory from './pages/Inventory';
+import Recommendations from './pages/Recommendations';
 import { fetchHealth } from './services/api';
 
 function App() {
@@ -54,6 +55,13 @@ function App() {
           <Inventory
             setActiveTab={setActiveTab}
             initialContext={sharedForecastContext}
+          />
+        );
+      case 'recommendations':
+        return (
+          <Recommendations
+            setActiveTab={setActiveTab}
+            onBridgeToInventory={handleBridgeToInventory}
           />
         );
       default:

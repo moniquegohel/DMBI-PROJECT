@@ -163,4 +163,23 @@ export const getInventoryStockInfo = async (storeId, productId) => {
 // Backward-compatibility alias
 export const analyzeInventory = simulateInventory;
 
+// --- Milestone 10: Inventory Recommendations ---
+
+export const getInventoryRecommendations = async (params = {}) => {
+  const response = await api.get('/recommendation/all', { params });
+  return response.data;
+};
+
+export const calculateRecommendations = async (body) => {
+  const response = await api.post('/recommendation/calculate', body);
+  return response.data;
+};
+
+// --- Milestone 11: Business Insights Dashboard ---
+
+export const getDashboardSummary = async () => {
+  const response = await api.get('/recommendation/dashboard-summary');
+  return response.data;
+};
+
 export default api;
